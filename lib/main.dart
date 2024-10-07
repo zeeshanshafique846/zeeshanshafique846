@@ -1,12 +1,24 @@
+// ignore_for_file: prefer_const_constructors
+import 'package:get/get.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:qr_code_scanner_app/new_page.dart';
 //import 'package:qr_code_scanner_app/Scan.dart';
 //import 'package:qr_code_scanner_app/generate_qr.dart';
 //import 'package:qr_code_scanner_app/history.dart';
 import 'package:qr_code_scanner_app/start_screen.dart';
+import 'package:qr_code_scanner_app/services/database_services.dart';
 
-void main() {
+Future<void> main() async {
+  try {
+    WidgetsFlutterBinding.ensureInitialized();
+
+    await DatabaseHelper().initDb();
+    print('DB init sucesfully');
+  } catch (e) {
+    print('Here we got exception $e');
+  }
   runApp(const MyApp());
 }
 
@@ -16,7 +28,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'QR Code Scanner App',
       theme: ThemeData(
@@ -52,7 +64,7 @@ class _SplashScreen extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5), () {
+    Timer(Duration(seconds: 3), () {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => start()));
     });

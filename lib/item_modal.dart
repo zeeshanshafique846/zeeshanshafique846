@@ -3,11 +3,11 @@
 import 'package:flutter/material.dart';
 
 class ItemModal {
-  String text;
+  String heading;
   String image;
-  Widget child;
+  Function() onTap;
 
-  ItemModal({required this.text, required this.image, required this.child});
+  ItemModal({required this.heading, required this.image, required this.onTap});
 }
 
 class History_items_modal {

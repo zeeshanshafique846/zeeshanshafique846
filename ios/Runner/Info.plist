@@ -12,10 +12,24 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>NSContactsUsageDescription</key>
+<string>We need access to your contacts to add a new contact.</string>
+
 	<key>CFBundleName</key>
 	<string>qr_code_scanner_app</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+    <string>We need access to save images to your gallery.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>We need access to your photo library to save images.</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>We need access to your photo library to save images.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>We need access to your camera for scanning QR codes.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We need your location to provide location-based services.</string>
+
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>

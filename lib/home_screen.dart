@@ -1,7 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:qr_code_scanner_app/Scanner.dart';
+//import 'package:flutter/widgets.dart';
 import 'package:qr_code_scanner_app/generate_qr.dart';
 import 'package:qr_code_scanner_app/history.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,16 +25,25 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(51, 51, 51, 0.84),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Container(
-          padding: EdgeInsets.all(15),
-          decoration: BoxDecoration(boxShadow: [
-            BoxShadow(
-              color: Colors.yellow.shade700, blurRadius: 6, //spreadRadius: 1
-            )
-          ], shape: BoxShape.circle, color: Colors.yellow.shade700),
-          height: 60,
-          width: 60,
-          child: Image.asset("assets/qr_bottom_navigation_bar.png")),
+      floatingActionButton: GestureDetector(
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Scanner(),
+              ));
+        },
+        child: Container(
+            padding: EdgeInsets.all(15),
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(
+                color: Colors.yellow.shade700, blurRadius: 6, //spreadRadius: 1
+              )
+            ], shape: BoxShape.circle, color: Colors.yellow.shade700),
+            height: 60,
+            width: 60,
+            child: Image.asset("assets/qr_bottom_navigation_bar.png")),
+      ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
             border: Border(
